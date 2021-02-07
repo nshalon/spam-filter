@@ -1,4 +1,4 @@
-
+import numpy as np
 
 def linearmodel(w,xTe):
 # INPUT:
@@ -9,6 +9,9 @@ def linearmodel(w,xTe):
 #
 # preds predictions
 
-    # YOUR CODE HERE
+    preds = float(np.asarray(w.T) * np.asmatrix(xTe).T)
+
+    # for w_i, x_ij in list(zip(w, xTe)):
+    #     preds += w_i * x_ij
 
     return preds
