@@ -10,13 +10,8 @@ data = io.loadmat('data/data_train_default.mat')
 X = data['X']
 Y = data['Y']
 
-print(X)
-print()
-print(Y)
-exit()
-
 # split the data:
-xTr,xTv,yTr,yTv = valsplit(X,Y)
+xTr, xTv, yTr, yTv = valsplit(X,Y)
 
 # train spam filter with settings and parameters in trainspamfilter.py
 w_trained = trainspamfilter(xTr,yTr)
