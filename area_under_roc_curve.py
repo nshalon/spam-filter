@@ -6,7 +6,6 @@ def area_under_roc_curve(labels, scores):
     scores = scores.T
     if labels.shape[0] != scores.shape[0]:
         print("error: Length of labels must be equal in order to compute area under ROC curve")
-    
 
     indx = np.argsort(-scores,axis=0)
     
@@ -18,4 +17,4 @@ def area_under_roc_curve(labels, scores):
     X = X.T
     Y = Y.T
     AUC = sum( (X[ 1:leng-1,: ] - X[ 0:(leng-2),:] )*1.0* Y[1:leng-1,:] )
-    return X,Y,AUC
+    return X, Y, AUC
