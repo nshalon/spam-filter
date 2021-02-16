@@ -18,7 +18,7 @@ def ridge(w, xTr, yTr, lambdaa):
 
     # YOUR CODE HERE
     sum_term = np.sum(xTr.T * w.T, axis=1) - yTr
-    gradient = np.sum(sum_term * xTr, axis=1).reshape((xTr.shape[0], 1))
+    gradient = 2 * np.sum(sum_term * xTr, axis=1).reshape((xTr.shape[0], 1))
     gradient += (2 * lambdaa * w)
 
     loss = np.sum(sum_term ** 2) + (lambdaa * (np.linalg.norm(w) ** 2))

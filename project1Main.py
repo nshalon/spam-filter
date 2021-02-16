@@ -11,10 +11,13 @@ X = data['X']
 Y = data['Y']
 
 # split the data:
-xTr, xTv, yTr, yTv = valsplit(X,Y)
+xTr, xTv, yTr, yTv = valsplit(X, Y)
+
+xTr_normed = xTr / xTr.max(axis=0)
+xTv_normed = xTv / xTv.max(axis=0)
 
 # train spam filter with settings and parameters in trainspamfilter.py
-w_trained = trainspamfilter(xTr,yTr)
+w_trained = trainspamfilter(xTr_normed, yTr)
 
 # evaluate spam filter on test set using default threshold
-spamfilter(xTv,yTv,w_trained)
+spamfilter(xTv_normed, yTv, w_trained)
