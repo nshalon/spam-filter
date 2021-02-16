@@ -18,10 +18,10 @@ def hinge(w,xTr,yTr,lambdaa):
     # gradient = the gradient at w
 
     pred_z = np.sum(xTr.T * w.T, axis=1) * yTr
-    gradient = lambdaa * np.sum((xTr * -yTr) * (pred_z < 1), axis=1).reshape((xTr.shape[0], 1))
-    gradient += (2 * w)
+    gradient = np.sum((xTr * -yTr) * (pred_z < 1), axis=1).reshape((xTr.shape[0], 1))
+    gradient += (2 * lambdaa * w)
 
-    loss = lambdaa * np.sum(np.maximum(1 - pred_z, np.zeros(xTr.shape[1]))) + (np.linalg.norm(w) ** 2)
+    loss = np.sum(np.maximum(1 - pred_z, np.zeros(xTr.shape[1]))) + lambdaa * (np.linalg.norm(w) ** 2)
 
     # pred_z = np.multiply(yTr, (np.asmatrix(w.T) * xTr)) # 1 x n
     # emp_loss_nonzerod = 1 - pred_z
