@@ -18,10 +18,8 @@ def grdescent(func, w0, stepsize, maxiter, tolerance=1e-02):
     while t < maxiter and float(np.linalg.norm(gradient)) > tolerance:
         t += 1
         loss, gradient = func(w)
-        if np.linalg.norm(gradient) <= np.linalg.norm(prev_gradient):
-            stepsize *= 1.01
-        else:
-            stepsize *= 0.5
+        if stepsize > eps:
+            stepsize *= 1.01 if np.linalg.norm(gradient) <= np.linalg.norm(prev_gradient) else 0.5
         if t % 1e2 == 0:
             print("trial %s loss: %s" % (t, loss))
             print('Gradient Norm: {}'.format(np.linalg.norm(gradient)))
