@@ -7,7 +7,7 @@ from grdscent import grdescent
 from scipy import io
 
 
-def trainspamfilter(xTr, yTr):
+def trainspamfilter(xTr, yTr, lambdaa):
 
     #
     # INPUT:

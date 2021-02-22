@@ -3,6 +3,7 @@ import random
 import math
 from logistic import logistic
 from ridge import ridge
+from hinge import hinge
 from checkgradLogistic import checkgradLogistic
 from checkgradHingeAndRidge import checkgradHingeAndRidge
 
@@ -74,6 +75,8 @@ def example_tests():
         ok=ok+1
     print('Completed Test 4\n')
 
+    d = checkgradHingeAndRidge(hinge, np.random.rand(D, 1), 1e-05, x, y, 1e-05)
+    print("hinge", d)
 #     %% Test 5: testing gradient of hinge
 #     % we will test hinge using checkgrad on randomly generated x and y data
 #     % initializing w with 1e-05 and lambda with 1e-05. The gradient is supposed
